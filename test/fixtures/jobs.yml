@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  upper_wage: 9.99
+  lower_wage: 9.99
+  contact: MyText
+  is_hidden: false
+
+two:
+  title: MyString
+  description: MyText
+  upper_wage: 9.99
+  lower_wage: 9.99
+  contact: MyText
+  is_hidden: false
