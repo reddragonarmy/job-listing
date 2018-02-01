@@ -1,11 +1,5 @@
 <tr>
-  <td>
-    <% if job.is_hidden %>
-      隐藏
-    <% else %>
-      公开
-    <% end %>
-  </td>
+  <td><%= render_job_status(job) %></td>
   <td><%= link_to(job.title, job_path(job)) %></td>
   <td><%= render_job_description(job) %></td>
   <td><%= render_job_time(job.created_at) %></td>

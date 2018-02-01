@@ -1,4 +1,5 @@
 module JobsHelper
+
   def render_job_description(job)
     job.description
   end
@@ -6,4 +7,13 @@ module JobsHelper
   def render_job_time(time)
     time
   end
+
+  def render_job_status(job)
+    if job.is_hidden
+      "隐藏"
+    else
+      "公开"
+    end
+  end
+
 end
