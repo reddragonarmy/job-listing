@@ -1,5 +1,6 @@
 class Admin::JobsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :require_is_admin
   before_action :find_job_and_check_permission, only: [:edit, :update, :destroy]
 
   def index
@@ -47,6 +48,12 @@ class Admin::JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact, :is_hidden)
+  end
+
+  def require_is_admin
+    unless current_user.is_admin?
+      redirect_to root_path, alert: "你没有权限"
+    end
   end
 
   def find_job_and_check_permission
