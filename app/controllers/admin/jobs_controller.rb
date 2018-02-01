@@ -1,4 +1,4 @@
-class JobsController < ApplicationController
+class Admin::JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_job_and_check_permission, only: [:edit, :update, :destroy]
 
@@ -18,7 +18,7 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
 
     if @job.save
-      redirect_to jobs_path, notice: "成功建立新的招聘启示"
+      redirect_to admin_jobs_path, notice: "成功建立新的招聘启示"
     else
       render :new
     end
@@ -31,7 +31,7 @@ class JobsController < ApplicationController
   def update
 
     if @job.update(job_params)
-      redirect_to jobs_path, notice: "招聘启示已更新"
+      redirect_to admin_jobs_path, notice: "招聘启示已更新"
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class JobsController < ApplicationController
 
   def destroy
     @job.destroy
-    redirect_to jobs_path, alert: "招聘启示已删除"
+    redirect_to admin_jobs_path, alert: "招聘启示已删除"
   end
 
   private
