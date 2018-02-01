@@ -8,10 +8,11 @@
         <td>#</td>
         <td>Title</td>
         <td>Description</td>
+        <td>创建时间</td>
       </tr>
     </thead>
     <tbody>
-      <h3>这是主页，查看请进入后台</h3>
+      <%= render partial: "job_item" , collection: @jobs, as: :job %>
     </tbody>
   </table>
 </div>

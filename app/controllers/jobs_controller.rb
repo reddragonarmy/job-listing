@@ -3,7 +3,7 @@ class JobsController < ApplicationController
   before_action :find_job_and_check_permission, only: [:edit, :update, :destroy]
 
   def index
-    @jobs = Job.all
+    @jobs = Job.all.where(is_hidden: false).recent
   end
 
   def show
