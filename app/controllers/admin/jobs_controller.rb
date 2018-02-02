@@ -1,7 +1,7 @@
 class Admin::JobsController < ApplicationController
   before_action :authenticate_user!
   before_action :require_is_admin
-  before_action :find_job_and_check_permission, only: [:show, :edit, :update, :destroy]
+  before_action :find_job_and_check_permission, only: [:show, :edit, :update, :destroy, :publish, :hide]
 
   layout "admin"
 
@@ -45,6 +45,22 @@ class Admin::JobsController < ApplicationController
     @job.destroy
     redirect_to admin_jobs_path, alert: "招聘启示已删除"
   end
+
+
+  def publish
+    if @job.is_hidden
+      @job.publish!
+      redirect_to admin_jobs_path, notice: "招聘已发布"
+    end
+  end
+
+  def hide
+    unless @job.is_hidden
+      @job.hide!
+      redirect_to admin_jobs_path, warning: "招聘已隐藏"
+    end
+  end
+
 
   private
 
