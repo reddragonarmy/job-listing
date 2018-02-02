@@ -10,9 +10,9 @@ module JobsHelper
 
   def render_job_status(job)
     if job.is_hidden
-      "隐藏"
+      content_tag(:i, "", class: ["fas", "fa-lock"])
     else
-      "公开"
+      content_tag(:i, "", class: ["fas", "fa-eye"])
     end
   end
 
