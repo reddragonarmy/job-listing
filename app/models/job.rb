@@ -4,6 +4,8 @@ class Job < ApplicationRecord
   validates :title, presence: true
   validates :contact, presence: true
 
+  has_many :resumes
+
   scope :recent, -> {order("created_at DESC")}
 
   def publish!
