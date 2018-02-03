@@ -13,7 +13,7 @@ class ResumesController < ApplicationController
     @resume.user = current_user
 
     if @resume.save
-      redirect_to job_path(@job), notice: "简历已成功提交，可在我的简历中查看编辑"
+      redirect_to job_path(@job), notice: "简历已成功提交，可在我个人中心里查看编辑"
     else
       render :new
     end

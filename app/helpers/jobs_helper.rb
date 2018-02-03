@@ -4,10 +4,6 @@ module JobsHelper
     job.description
   end
 
-  def render_job_time(time)
-    time
-  end
-
   def render_job_status(job)
     if job.is_hidden
       content_tag(:i, "", class: ["fas", "fa-lock"])
