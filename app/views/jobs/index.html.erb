@@ -1,12 +1,29 @@
 <div class="col-md-12">
-  <div class="group">
-    <%= link_to("新建招聘启示", "#", class: "btn btn-primary pull-right") %>
-  </div>
+
+  <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle btn btn-sm btn-default" data-toggle="dropdown">
+                排序
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+              <li> <%= link_to("按招聘发布时间降序", jobs_path(order: "by_created_at")) %> </li>
+              <li> <%= link_to("按照薪资上限降序", jobs_path(order: "by_upper_bound")) %> </li>
+              <li> <%= link_to("按照薪资下限降序", jobs_path(order: "by_lower_bound")) %> </li>
+            </ul>
+          </li>
+      </ul>
+    </div>
+
+  
   <table class="table table-hover">
     <thead>
       <tr>
         <td>#</td>
         <td>Title</td>
+        <td>工资上限</td>
+        <td>工资下限</td>
         <td>创建时间</td>
       </tr>
     </thead>

@@ -4,7 +4,7 @@ class Job < ApplicationRecord
   validates :title, presence: true
   validates :contact, presence: true
 
-  scope :recent, -> {order("updated_at DESC")}
+  scope :recent, -> {order("created_at DESC")}
 
   def publish!
     self.is_hidden = false
