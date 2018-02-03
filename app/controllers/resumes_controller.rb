@@ -13,6 +13,7 @@ class ResumesController < ApplicationController
     @resume.user = current_user
 
     if @resume.save
+      binding.pry
       redirect_to job_path(@job), notice: "简历已成功提交，可在我个人中心里查看编辑"
     else
       render :new
@@ -22,7 +23,7 @@ class ResumesController < ApplicationController
   private
 
   def resume_params
-    params.require(:resume).permit(:name, :phone, :email)
+    params.require(:resume).permit(:name, :phone, :email, :attachment)
   end
 
 end
