@@ -1,0 +1,58 @@
+<div class="col-md-12">
+
+  <!-- 从 Navbar 上改编过来的代码实现排序按钮
+  <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown">
+                排序
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+              <li> <%= link_to("按招聘发布时间降序", jobs_path(order: "by_created_at")) %> </li>
+              <li> <%= link_to("按照薪资上限降序", jobs_path(order: "by_upper_bound")) %> </li>
+              <li> <%= link_to("按照薪资下限降序", jobs_path(order: "by_lower_bound")) %> </li>
+            </ul>
+          </li>
+      </ul>
+    </div>
+    -->
+
+    <!-- 下面是官方演示的排序按钮实现方式代码 -->
+    <div class="dropdown clearfix pull-right">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        排序
+          <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+          <li>
+            <%= link_to("按照薪资下限排序", jobs_path(:order => "by_lower_bound")) %>
+          </li>
+          <li>
+              <%= link_to("按照薪资上限排序", jobs_path(:order => "by_upper_bound")) %>
+
+          </li>
+          <li>
+            <%= link_to("按照发表时间排序", jobs_path ) %>
+
+          </li>
+      </ul>
+    </div>
+    <!-- 上面是官方演示的排序按钮实现方式代码 -->
+
+  
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>Title</td>
+        <td>工资上限</td>
+        <td>工资下限</td>
+        <td>创建时间</td>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "job_item" , collection: @jobs, as: :job %>
+    </tbody>
+  </table>
+</div>

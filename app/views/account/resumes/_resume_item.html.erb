@@ -1,0 +1,5 @@
+<tr>
+  <td><%= link_to(resume.job.title, job_path(resume.job)) %></td>
+  <td><%= link_to(resume.attachment_identifier, resume.attachment.url) %></td>
+  <td><%= render_time(resume.created_at) %></td>
+</tr>

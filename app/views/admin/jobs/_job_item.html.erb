@@ -1,0 +1,16 @@
+<tr>
+  <td><%= render_job_status(job) %></td>
+  <td><%= link_to(job.title, admin_job_resumes_path(job)) %></td>
+  <td><%= render_time(job.created_at) %></td>
+  <td><%= job.resumes.count %></td>
+  <td>
+    <%= link_to("Edit", edit_admin_job_path(job), class: "btn btn-sm btn-default")%>
+    <%= link_to("Delete", admin_job_path(job),    class: "btn btn-sm btn-danger", 
+                  method: :delete, data: { confirm: "Are you sure?" } )%> | 
+    <% if job.is_hidden %>
+      <%= link_to("Publish", publish_admin_job_path(job), method: :post, class: "btn btn-sm btn-info")%>
+    <% else %>
+      <%= link_to("Hide", hide_admin_job_path(job), method: :post, class: "btn btn-sm btn-warning")%>
+    <% end %>
+  </td>
+</tr>
